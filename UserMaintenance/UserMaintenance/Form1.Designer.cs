@@ -29,28 +29,28 @@ namespace UserMaintenance
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.list_Users = new System.Windows.Forms.ListBox();
+            this.txt_LastName = new System.Windows.Forms.TextBox();
             this.lbl_LastName = new System.Windows.Forms.Label();
             this.btn_Add = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_FirstName = new System.Windows.Forms.TextBox();
             this.lbl_FirstName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // listBox1
+            // list_Users
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
-            this.listBox1.TabIndex = 0;
+            this.list_Users.FormattingEnabled = true;
+            this.list_Users.Location = new System.Drawing.Point(12, 12);
+            this.list_Users.Name = "list_Users";
+            this.list_Users.Size = new System.Drawing.Size(120, 95);
+            this.list_Users.TabIndex = 0;
             // 
-            // textBox1
+            // txt_LastName
             // 
-            this.textBox1.Location = new System.Drawing.Point(209, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.txt_LastName.Location = new System.Drawing.Point(209, 12);
+            this.txt_LastName.Name = "txt_LastName";
+            this.txt_LastName.Size = new System.Drawing.Size(100, 20);
+            this.txt_LastName.TabIndex = 1;
             // 
             // lbl_LastName
             // 
@@ -70,12 +70,12 @@ namespace UserMaintenance
             this.btn_Add.Text = "button1";
             this.btn_Add.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // txt_FirstName
             // 
-            this.textBox2.Location = new System.Drawing.Point(209, 38);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
+            this.txt_FirstName.Location = new System.Drawing.Point(209, 38);
+            this.txt_FirstName.Name = "txt_FirstName";
+            this.txt_FirstName.Size = new System.Drawing.Size(100, 20);
+            this.txt_FirstName.TabIndex = 4;
             // 
             // lbl_FirstName
             // 
@@ -92,11 +92,11 @@ namespace UserMaintenance
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(334, 146);
             this.Controls.Add(this.lbl_FirstName);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_FirstName);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.lbl_LastName);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.txt_LastName);
+            this.Controls.Add(this.list_Users);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -106,11 +106,11 @@ namespace UserMaintenance
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListBox list_Users;
+        private System.Windows.Forms.TextBox txt_LastName;
         private System.Windows.Forms.Label lbl_LastName;
         private System.Windows.Forms.Button btn_Add;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_FirstName;
         private System.Windows.Forms.Label lbl_FirstName;
     }
 }
