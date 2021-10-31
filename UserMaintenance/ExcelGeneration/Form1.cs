@@ -18,7 +18,9 @@ namespace ExcelGeneration
         List<Flat> flats;
         RealEstateEntities context = new RealEstateEntities();
 
-        
+        Excel.Application xlApp;
+        Excel.Workbook xlWb;
+        Excel.Worksheet xlWs;
 
         public Form1()
         {
@@ -30,6 +32,32 @@ namespace ExcelGeneration
         private void LoadData()
         {
             flats = context.Flat.ToList();
+        }
+
+        private void CreateExcel()
+        {
+            try
+            {
+                xlApp = new Excel.Application();
+                xlWb = xlApp.Workbooks.Add(Missing.Value);
+                xlWs = xlWb.ActiveSheet;
+
+
+
+                xlApp.Visible = true;
+                xlApp.UserControl = true;
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
+                MessageBox.Show(errorMessage, "Error");
+
+                xlWb.Close();
+                xlApp.Quit();
+                xlWb = null;
+                xlApp = null;
+
+            }
         }
     }
 }
