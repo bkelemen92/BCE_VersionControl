@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExcelGeneration.Data;
-using Microsoft.Office.Interop.Excel;
+using Excel = Microsoft.Office.Interop.Excel;
 using System.Reflection;
 
 namespace ExcelGeneration
@@ -17,6 +17,9 @@ namespace ExcelGeneration
     {
         List<Flat> flats;
         RealEstateEntities context = new RealEstateEntities();
+
+        
+
         public Form1()
         {
             InitializeComponent();
