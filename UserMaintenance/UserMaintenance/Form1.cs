@@ -22,6 +22,7 @@ namespace UserMaintenance
             lbl_FullName.Text = Resource1.FullName;
             btn_Add.Text = Resource1.Add;
             btn_WriteToFile.Text = Resource1.WriteToFile;
+            btn_Remove.Text = Resource1.Remove;
 
             list_Users.DataSource = users;
             list_Users.ValueMember = "ID";
@@ -29,6 +30,12 @@ namespace UserMaintenance
 
             btn_Add.Click += Btn_Add_Click;
             btn_WriteToFile.Click += Btn_WriteToFile_Click;
+            btn_Remove.Click += Btn_Remove_Click;
+        }
+
+        private void Btn_Remove_Click(object sender, EventArgs e)
+        {
+            RemoveFromList((User)list_Users.SelectedItem);
         }
 
         private void Btn_WriteToFile_Click(object sender, EventArgs e)
@@ -60,6 +67,11 @@ namespace UserMaintenance
                 }
                 sw.Close();
             }
+        }
+
+        private void RemoveFromList(User selectedItem)
+        {
+            if (list_Users.SelectedItem != null) users.Remove(selectedItem);
         }
     }
 }

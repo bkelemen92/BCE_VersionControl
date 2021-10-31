@@ -34,6 +34,7 @@ namespace UserMaintenance
             this.lbl_FullName = new System.Windows.Forms.Label();
             this.btn_Add = new System.Windows.Forms.Button();
             this.btn_WriteToFile = new System.Windows.Forms.Button();
+            this.btn_Remove = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // list_Users
@@ -78,11 +79,21 @@ namespace UserMaintenance
             this.btn_WriteToFile.Text = "Fájlba írás";
             this.btn_WriteToFile.UseVisualStyleBackColor = true;
             // 
+            // btn_Remove
+            // 
+            this.btn_Remove.Location = new System.Drawing.Point(171, 87);
+            this.btn_Remove.Name = "btn_Remove";
+            this.btn_Remove.Size = new System.Drawing.Size(113, 23);
+            this.btn_Remove.TabIndex = 5;
+            this.btn_Remove.Text = "Eltávolítás";
+            this.btn_Remove.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(415, 184);
+            this.Controls.Add(this.btn_Remove);
             this.Controls.Add(this.btn_WriteToFile);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.lbl_FullName);
@@ -102,6 +113,7 @@ namespace UserMaintenance
         private System.Windows.Forms.Label lbl_FullName;
         private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.Button btn_WriteToFile;
+        private System.Windows.Forms.Button btn_Remove;
     }
 }
 
