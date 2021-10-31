@@ -26,6 +26,7 @@ namespace ExcelGeneration
         {
             InitializeComponent();
             LoadData();
+            CreateExcel();
         }
 
 
@@ -42,7 +43,7 @@ namespace ExcelGeneration
                 xlWb = xlApp.Workbooks.Add(Missing.Value);
                 xlWs = xlWb.ActiveSheet;
 
-
+                CreateTable();
 
                 xlApp.Visible = true;
                 xlApp.UserControl = true;
@@ -58,6 +59,63 @@ namespace ExcelGeneration
                 xlApp = null;
 
             }
+        }
+
+        private void CreateTable()
+        {
+            string[] headers = new string[] 
+            {
+                "Kód",
+                "Eladó",
+                "Oldal",
+                "Kerület",
+                "Lift",
+                "Szobák száma",
+                "Alapterület (m2)",
+                "Ár (mFt)",
+                "Négyzetméter ár (Ft/m2)"
+            };
+
+            object[,] values = new object[flats.Count, headers.Length];
+
+            for (int i = 0; i < headers.Length; i++)
+            {
+                xlWs.Cells[1, i + 1] = headers[i];
+            }
+
+            int counter = 0;
+            foreach (Flat f in flats)
+            {
+                values[counter, 0] = f.Code;
+                values[counter, 1] = f.Vendor;
+                values[counter, 2] = f.Side;
+                values[counter, 3] = f.District;
+                values[counter, 4] = f.Elevator == true ? "Van" : "Nincs";
+                values[counter, 5] = f.NumberOfRooms;
+                values[counter, 6] = f.FloorArea;
+                values[counter, 7] = f.Price;
+                values[counter, 8] = string.Format("={0}/{1}*1000000", GetCellInRange(counter + 2, 8), GetCellInRange(counter + 2, 7));
+                counter++;
+            }
+
+            xlWs.get_Range(GetCellInRange(2,1), GetCellInRange(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
+        }
+
+        private string GetCellInRange(int x, int y)
+        {
+            string ExcelCoordinate = "";
+            int dividend = y;
+            int modulo;
+
+            while (dividend > 0)
+            {
+                modulo = (dividend - 1) % 26;
+                ExcelCoordinate = Convert.ToChar(65 + modulo).ToString() + ExcelCoordinate;
+                dividend = (int)((dividend - modulo) / 26);
+            }
+            ExcelCoordinate += x.ToString();
+
+            return ExcelCoordinate;
         }
     }
 }
