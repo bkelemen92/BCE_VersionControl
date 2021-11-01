@@ -27,9 +27,24 @@ namespace ExcelGeneration
         {
             InitializeComponent();
             LoadData();
+            FormatLabel();
+            FormatButtons();
+
             CreateExcel();
+
+            btn_Close.Click += Btn_Close_Click;
+            btn_CloseExcel.Click += Btn_CloseExcel_Click;
         }
 
+        private void Btn_CloseExcel_Click(object sender, EventArgs e)
+        {
+            CloseExcelApp();
+        }
+
+        private void Btn_Close_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
         private void LoadData()
         {
@@ -54,10 +69,7 @@ namespace ExcelGeneration
                 string errorMessage = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
                 MessageBox.Show(errorMessage, "Error");
 
-                xlWb.Close();
-                xlApp.Quit();
-                xlWb = null;
-                xlApp = null;
+                CloseExcelApp();
 
             }
         }
@@ -136,6 +148,46 @@ namespace ExcelGeneration
             //Last column format
             lastColumnRange.Interior.Color = Color.LightGreen;
             lastColumnRange.NumberFormat = "#,#.00 Ft";
+        }
+
+        private void CloseExcelApp()
+        {
+            xlWb.Close(false);
+            xlApp.Quit();
+            xlWb = null;
+            xlApp = null;
+        }
+
+
+        private void FormatLabel()
+        {
+            lbl_Magic.Text = "Excel Magic";
+            lbl_Magic.Font = new Font("Segoe UI", 55);
+            lbl_Magic.AutoSize = false;
+            lbl_Magic.Dock = DockStyle.Top;
+            lbl_Magic.TextAlign = ContentAlignment.MiddleCenter;
+            lbl_Magic.Height = 100;
+        }
+
+        private void FormatButtons()
+        {
+            int btnWidth = 200;
+            int btnHeight = 30;
+            int btnSpacing = 12;
+
+            btn_Close.Text = "Bezárás";
+            btn_Close.Width = btnWidth;
+            btn_Close.Height = btnHeight;
+            btn_Close.Left = (this.Width / 2) - btnWidth - (btnSpacing);
+            btn_Close.Top = 130;
+            btn_Close.Anchor = AnchorStyles.Top;
+
+            btn_CloseExcel.Text = "Excel bezárása";
+            btn_CloseExcel.Width = btnWidth;
+            btn_CloseExcel.Height = btnHeight;
+            btn_CloseExcel.Left = (this.Width / 2) + (btnSpacing / 2);
+            btn_CloseExcel.Top = 130;
+            btn_CloseExcel.Anchor = AnchorStyles.Top;
         }
     }
 }
