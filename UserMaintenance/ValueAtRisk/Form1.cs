@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ValueAtRisk.Data;
 using ValueAtRisk.Entities;
@@ -17,6 +14,8 @@ namespace ValueAtRisk
         PortfolioEntities context = new PortfolioEntities();
         List<Tick> Ticks;
         List<PortfolioItem> Portfolio = new List<PortfolioItem>();
+        List<decimal> Profit = new List<decimal>();
+
 
         public Form1()
         {
@@ -26,6 +25,13 @@ namespace ValueAtRisk
 
             CreatePortfolio();
             CalculateProfit();
+
+            btn_SaveToFile.Click += Btn_SaveToFile_Click;
+        }
+
+        private void Btn_SaveToFile_Click(object sender, EventArgs e)
+        {
+            SaveToFile();
         }
 
         private void CreatePortfolio()
@@ -53,7 +59,7 @@ namespace ValueAtRisk
 
         private void CalculateProfit()
         {
-            List<decimal> Profit = new List<decimal>();
+            
             int interval = 30;
             DateTime StartDate = (from x in Ticks select x.TradingDay).Min();
             DateTime EndDate = new DateTime(2016, 12, 30);
@@ -68,6 +74,24 @@ namespace ValueAtRisk
 
             var ProfitOrdered = (from x in Profit orderby x select x).ToList();
             MessageBox.Show(ProfitOrdered[ProfitOrdered.Count() / 5].ToString(), "Profit", MessageBoxButtons.OK);
+        }
+
+
+        private void SaveToFile()
+        {
+            using (SaveFileDialog s = new SaveFileDialog() { Filter = "Text files | *.txt" })
+            {
+                if (s.ShowDialog() == DialogResult.OK)
+                {
+                    StreamWriter sw = new StreamWriter(s.FileName);
+                    sw.WriteLine("Időszak, Nyereség");
+                    for (int i = 0; i < Profit.Count; i++)
+                    {
+                        sw.WriteLine(i + "," + Profit[i]);
+                    }
+                    sw.Close();
+                }
+            }
         }
 
     }

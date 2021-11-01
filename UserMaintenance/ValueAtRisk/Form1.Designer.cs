@@ -31,6 +31,7 @@ namespace ValueAtRisk
         {
             this.dgv_Ticks = new System.Windows.Forms.DataGridView();
             this.dgv_Portfolio = new System.Windows.Forms.DataGridView();
+            this.btn_SaveToFile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Ticks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Portfolio)).BeginInit();
             this.SuspendLayout();
@@ -51,11 +52,22 @@ namespace ValueAtRisk
             this.dgv_Portfolio.Size = new System.Drawing.Size(257, 426);
             this.dgv_Portfolio.TabIndex = 1;
             // 
+            // btn_SaveToFile
+            // 
+            this.btn_SaveToFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_SaveToFile.Location = new System.Drawing.Point(590, 445);
+            this.btn_SaveToFile.Name = "btn_SaveToFile";
+            this.btn_SaveToFile.Size = new System.Drawing.Size(257, 41);
+            this.btn_SaveToFile.TabIndex = 2;
+            this.btn_SaveToFile.Text = "Lista fájlba mentése";
+            this.btn_SaveToFile.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 498);
+            this.Controls.Add(this.btn_SaveToFile);
             this.Controls.Add(this.dgv_Portfolio);
             this.Controls.Add(this.dgv_Ticks);
             this.Name = "Form1";
@@ -70,6 +82,7 @@ namespace ValueAtRisk
 
         private System.Windows.Forms.DataGridView dgv_Ticks;
         private System.Windows.Forms.DataGridView dgv_Portfolio;
+        private System.Windows.Forms.Button btn_SaveToFile;
     }
 }
 
