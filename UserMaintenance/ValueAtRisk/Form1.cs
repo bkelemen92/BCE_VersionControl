@@ -25,6 +25,7 @@ namespace ValueAtRisk
             dgv_Ticks.DataSource = Ticks;
 
             CreatePortfolio();
+            CalculateProfit();
         }
 
         private void CreatePortfolio()
@@ -48,6 +49,25 @@ namespace ValueAtRisk
             }
 
             return value;
+        }
+
+        private void CalculateProfit()
+        {
+            List<decimal> Profit = new List<decimal>();
+            int interval = 30;
+            DateTime StartDate = (from x in Ticks select x.TradingDay).Min();
+            DateTime EndDate = new DateTime(2016, 12, 30);
+            TimeSpan z = EndDate - StartDate;
+
+            for (int i = 0; i < z.Days - interval; i++)
+            {
+                decimal p = GetPortfolioValue(StartDate.AddDays(i + interval)) - GetPortfolioValue(StartDate.AddDays(i));
+                Profit.Add(p);
+                Console.WriteLine(i + " " + p);
+            }
+
+            var ProfitOrdered = (from x in Profit orderby x select x).ToList();
+            MessageBox.Show(ProfitOrdered[ProfitOrdered.Count() / 5].ToString(), "Profit", MessageBoxButtons.OK);
         }
 
     }
