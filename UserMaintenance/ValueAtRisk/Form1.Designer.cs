@@ -29,13 +29,34 @@ namespace ValueAtRisk
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dgv_Ticks = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Ticks)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dgv_Ticks
+            // 
+            this.dgv_Ticks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Ticks.Location = new System.Drawing.Point(12, 12);
+            this.dgv_Ticks.Name = "dgv_Ticks";
+            this.dgv_Ticks.Size = new System.Drawing.Size(240, 426);
+            this.dgv_Ticks.TabIndex = 0;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dgv_Ticks);
+            this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Ticks)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dgv_Ticks;
     }
 }
 
