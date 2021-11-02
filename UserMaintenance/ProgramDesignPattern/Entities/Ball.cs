@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace ProgramDesignPattern.Entities
 {
-    class Ball : Label
+    public class Ball : Label
     {
         public Ball()
         {
@@ -27,7 +27,7 @@ namespace ProgramDesignPattern.Entities
             graphics.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
         }
 
-        private void MoveBall()
+        public void MoveBall()
         {
             Left += 1;
         }
