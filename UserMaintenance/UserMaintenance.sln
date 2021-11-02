@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelGeneration", "ExcelGen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValueAtRisk", "ValueAtRisk\ValueAtRisk.csproj", "{61B78C05-CCA6-4711-AFB4-7F73FA861D70}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramDesignPattern", "ProgramDesignPattern\ProgramDesignPattern.csproj", "{2C7692F7-C986-4AE1-8A3C-AAD0AC014B67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{61B78C05-CCA6-4711-AFB4-7F73FA861D70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61B78C05-CCA6-4711-AFB4-7F73FA861D70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61B78C05-CCA6-4711-AFB4-7F73FA861D70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C7692F7-C986-4AE1-8A3C-AAD0AC014B67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C7692F7-C986-4AE1-8A3C-AAD0AC014B67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C7692F7-C986-4AE1-8A3C-AAD0AC014B67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C7692F7-C986-4AE1-8A3C-AAD0AC014B67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
