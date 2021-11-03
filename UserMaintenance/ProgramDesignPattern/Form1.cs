@@ -83,5 +83,14 @@ namespace ProgramDesignPattern
         {
             Factory = new CarFactory();
         }
+
+        private void btn_BallColor_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog colorPicker = new ColorDialog() { Color = ((Button)sender).BackColor })
+            {
+                if (colorPicker.ShowDialog() != DialogResult.OK) return;
+                ((Button)sender).BackColor = colorPicker.Color;
+            }
+        }
     }
 }
