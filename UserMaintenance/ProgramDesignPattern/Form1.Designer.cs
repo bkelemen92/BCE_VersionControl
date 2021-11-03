@@ -90,11 +90,12 @@ namespace ProgramDesignPattern
             // 
             // btn_BallColor
             // 
+            this.btn_BallColor.BackColor = System.Drawing.Color.Red;
             this.btn_BallColor.Location = new System.Drawing.Point(13, 69);
             this.btn_BallColor.Name = "btn_BallColor";
             this.btn_BallColor.Size = new System.Drawing.Size(99, 23);
             this.btn_BallColor.TabIndex = 4;
-            this.btn_BallColor.UseVisualStyleBackColor = true;
+            this.btn_BallColor.UseVisualStyleBackColor = false;
             this.btn_BallColor.Click += new System.EventHandler(this.btn_BallColor_Click);
             // 
             // Form1
