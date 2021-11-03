@@ -14,6 +14,7 @@ namespace ProgramDesignPattern
 {
     public partial class Form1 : Form
     {
+        private Toy _nextToy;
         List<Toy> _toys = new List<Toy>();
 
         public Form1()
@@ -30,7 +31,7 @@ namespace ProgramDesignPattern
         public IToyFactory Factory
         {
             get { return _factory; }
-            set { _factory = value; }
+            set { _factory = value; DisplayNext(); }
         }
 
         #endregion
@@ -59,6 +60,28 @@ namespace ProgramDesignPattern
                 mainPanel.Controls.Remove(oldestBall);
                 _toys.Remove(oldestBall);
             }
+        }
+
+
+        private void DisplayNext()
+        {
+            if (_nextToy != null) Controls.Remove(_nextToy);
+            _nextToy = Factory.CreateNew();
+            _nextToy.Top = lbl_NextItem.Top + lbl_NextItem.Height + 20;
+            _nextToy.Left = lbl_NextItem.Left;
+            Controls.Add(_nextToy);
+        }
+
+
+
+        private void btn_BallSelector_Click(object sender, EventArgs e)
+        {
+            Factory = new BallFactory();
+        }
+
+        private void btn_CarSelector_Click(object sender, EventArgs e)
+        {
+            Factory = new CarFactory();
         }
     }
 }

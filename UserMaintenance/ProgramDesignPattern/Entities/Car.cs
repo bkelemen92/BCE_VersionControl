@@ -12,7 +12,7 @@ namespace ProgramDesignPattern.Entities
     {
         protected override void DrawImage(Graphics graphics)
         {
-            graphics.DrawImage(Image.FromFile(""), new Rectangle(0, 0, Width, Height));
+            graphics.DrawImage(Image.FromFile("Images/car.png"), new Rectangle(0, 0, Width, Height));
         }
     }
 }
