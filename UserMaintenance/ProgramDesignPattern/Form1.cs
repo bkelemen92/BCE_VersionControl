@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProgramDesignPattern.Abstractions;
 using ProgramDesignPattern.Entities;
 
 namespace ProgramDesignPattern
 {
     public partial class Form1 : Form
     {
-        List<Ball> _balls = new List<Ball>();
+        List<Toy> _toys = new List<Toy>();
 
         public Form1()
         {
@@ -24,9 +25,9 @@ namespace ProgramDesignPattern
 
 
         #region Properties
-        private BallFactory _factory;
+        private IToyFactory _factory;
 
-        public BallFactory Factory
+        public IToyFactory Factory
         {
             get { return _factory; }
             set { _factory = value; }
@@ -36,27 +37,27 @@ namespace ProgramDesignPattern
 
         private void createTimer_Tick(object sender, EventArgs e)
         {
-            Ball b = Factory.CreateNew();
+            Toy b = Factory.CreateNew();
             b.Top = (mainPanel.Height - b.Height) / 2;
             b.Left = -b.Width;
-            _balls.Add(b);
+            _toys.Add(b);
             mainPanel.Controls.Add(b);
         }
 
         private void conveyorTimer_Tick(object sender, EventArgs e)
         {
             var maxPosition = 0;
-            foreach (var ball in _balls)
+            foreach (var toy in _toys)
             {
-                ball.MoveBall();
-                if (ball.Left > maxPosition) maxPosition = ball.Left;
+                toy.MoveToy();
+                if (toy.Left > maxPosition) maxPosition = toy.Left;
             }
 
             if(maxPosition > 1000)
             {
-                Ball oldestBall = _balls[0];
+                Toy oldestBall = _toys[0];
                 mainPanel.Controls.Remove(oldestBall);
-                _balls.Remove(oldestBall);
+                _toys.Remove(oldestBall);
             }
         }
     }
