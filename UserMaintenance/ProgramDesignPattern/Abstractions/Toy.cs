@@ -14,7 +14,7 @@ namespace ProgramDesignPattern.Abstractions
         {
             AutoSize = false;
             Width = Height = 50;
-            Paint += Toy_Paint; ;
+            Paint += Toy_Paint;
         }
 
         private void Toy_Paint(object sender, PaintEventArgs e)
