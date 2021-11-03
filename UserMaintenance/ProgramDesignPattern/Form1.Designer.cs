@@ -37,6 +37,9 @@ namespace ProgramDesignPattern
             this.btn_CarSelector = new System.Windows.Forms.Button();
             this.lbl_NextItem = new System.Windows.Forms.Label();
             this.btn_BallColor = new System.Windows.Forms.Button();
+            this.btn_PresentSelector = new System.Windows.Forms.Button();
+            this.btn_BoxColor = new System.Windows.Forms.Button();
+            this.btn_RibbonColor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -82,7 +85,7 @@ namespace ProgramDesignPattern
             // lbl_NextItem
             // 
             this.lbl_NextItem.AutoSize = true;
-            this.lbl_NextItem.Location = new System.Drawing.Point(311, 36);
+            this.lbl_NextItem.Location = new System.Drawing.Point(382, 12);
             this.lbl_NextItem.Name = "lbl_NextItem";
             this.lbl_NextItem.Size = new System.Drawing.Size(68, 13);
             this.lbl_NextItem.TabIndex = 3;
@@ -96,13 +99,46 @@ namespace ProgramDesignPattern
             this.btn_BallColor.Size = new System.Drawing.Size(99, 23);
             this.btn_BallColor.TabIndex = 4;
             this.btn_BallColor.UseVisualStyleBackColor = false;
-            this.btn_BallColor.Click += new System.EventHandler(this.btn_BallColor_Click);
+            this.btn_BallColor.Click += new System.EventHandler(this.btn_ColorSelector_Click);
+            // 
+            // btn_PresentSelector
+            // 
+            this.btn_PresentSelector.Location = new System.Drawing.Point(224, 12);
+            this.btn_PresentSelector.Name = "btn_PresentSelector";
+            this.btn_PresentSelector.Size = new System.Drawing.Size(100, 50);
+            this.btn_PresentSelector.TabIndex = 5;
+            this.btn_PresentSelector.Text = "PRESENT";
+            this.btn_PresentSelector.UseVisualStyleBackColor = true;
+            this.btn_PresentSelector.Click += new System.EventHandler(this.btn_PresentSelector_Click);
+            // 
+            // btn_BoxColor
+            // 
+            this.btn_BoxColor.BackColor = System.Drawing.Color.Red;
+            this.btn_BoxColor.Location = new System.Drawing.Point(224, 69);
+            this.btn_BoxColor.Name = "btn_BoxColor";
+            this.btn_BoxColor.Size = new System.Drawing.Size(99, 23);
+            this.btn_BoxColor.TabIndex = 6;
+            this.btn_BoxColor.UseVisualStyleBackColor = false;
+            this.btn_BoxColor.Click += new System.EventHandler(this.btn_ColorSelector_Click);
+            // 
+            // btn_RibbonColor
+            // 
+            this.btn_RibbonColor.BackColor = System.Drawing.Color.Red;
+            this.btn_RibbonColor.Location = new System.Drawing.Point(225, 98);
+            this.btn_RibbonColor.Name = "btn_RibbonColor";
+            this.btn_RibbonColor.Size = new System.Drawing.Size(99, 23);
+            this.btn_RibbonColor.TabIndex = 7;
+            this.btn_RibbonColor.UseVisualStyleBackColor = false;
+            this.btn_RibbonColor.Click += new System.EventHandler(this.btn_ColorSelector_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 326);
+            this.Controls.Add(this.btn_RibbonColor);
+            this.Controls.Add(this.btn_BoxColor);
+            this.Controls.Add(this.btn_PresentSelector);
             this.Controls.Add(this.btn_BallColor);
             this.Controls.Add(this.lbl_NextItem);
             this.Controls.Add(this.btn_CarSelector);
@@ -124,6 +160,9 @@ namespace ProgramDesignPattern
         private System.Windows.Forms.Button btn_CarSelector;
         private System.Windows.Forms.Label lbl_NextItem;
         private System.Windows.Forms.Button btn_BallColor;
+        private System.Windows.Forms.Button btn_PresentSelector;
+        private System.Windows.Forms.Button btn_BoxColor;
+        private System.Windows.Forms.Button btn_RibbonColor;
     }
 }
 

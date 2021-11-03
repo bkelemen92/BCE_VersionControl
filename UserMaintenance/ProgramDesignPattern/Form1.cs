@@ -83,8 +83,12 @@ namespace ProgramDesignPattern
         {
             Factory = new CarFactory();
         }
+        private void btn_PresentSelector_Click(object sender, EventArgs e)
+        {
+            Factory = new PresentFactory() { BoxColor = btn_BoxColor.BackColor, RibbonColor = btn_RibbonColor.BackColor };
+        }
 
-        private void btn_BallColor_Click(object sender, EventArgs e)
+        private void btn_ColorSelector_Click(object sender, EventArgs e)
         {
             using (ColorDialog colorPicker = new ColorDialog() { Color = ((Button)sender).BackColor })
             {
@@ -92,5 +96,7 @@ namespace ProgramDesignPattern
                 ((Button)sender).BackColor = colorPicker.Color;
             }
         }
+
+        
     }
 }
