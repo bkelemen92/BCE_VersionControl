@@ -14,8 +14,12 @@ namespace UserMaintenance
 {
     public partial class Form1 : Form
     {
+        #region LISTA
         BindingList<User> users = new BindingList<User>();
+        #endregion
 
+
+        #region CONSTRUKTOR
         public Form1()
         {
             InitializeComponent();
@@ -32,16 +36,21 @@ namespace UserMaintenance
             btn_WriteToFile.Click += Btn_WriteToFile_Click;
             btn_Remove.Click += Btn_Remove_Click;
         }
+        #endregion
+
+
 
         private void Btn_Remove_Click(object sender, EventArgs e)
         {
             RemoveFromList((User)list_Users.SelectedItem);
         }
 
+
         private void Btn_WriteToFile_Click(object sender, EventArgs e)
         {
             SaveToFile();
         }
+
 
         private void Btn_Add_Click(object sender, EventArgs e)
         {
@@ -55,17 +64,20 @@ namespace UserMaintenance
             users.Add(u);
         }
 
+
         private void SaveToFile()
         {
-            SaveFileDialog sfd = new SaveFileDialog {Filter="Text files | *.txt", DefaultExt = "txt" };
+            SaveFileDialog sfd = new SaveFileDialog { Filter = "Text files | *.txt |Excel files | *.xlsx", DefaultExt = "txt" };
             if(sfd.ShowDialog() == DialogResult.OK)
             {
+                /*
                 StreamWriter sw = new StreamWriter(sfd.FileName);
-                foreach (User item in list_Users.Items)
+                foreach (User u in list_Users.Items)
                 {
-                    sw.WriteLine(item.ID + " - " + item.FullName);
+                    sw.WriteLine(u.ID + "," + u.FullName);
                 }
                 sw.Close();
+                */
             }
         }
 
@@ -73,5 +85,9 @@ namespace UserMaintenance
         {
             if (list_Users.SelectedItem != null) users.Remove(selectedItem);
         }
+        
+
+
+
     }
 }
